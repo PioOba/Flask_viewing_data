@@ -1,4 +1,4 @@
-"# Flask_viewing_data" 
+
 ## **Overview**
 In this project we use Flask and Flask-SQLALchemy library to present data about electric car chargers that I have found on data.europa.eu (full source link at the bottom of the description). Apart from simply viewing the table we can also filtr it by the date.
 ## **Instructions**
