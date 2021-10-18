@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Chargers statistic database</title>
+{% endblock %}
+{% block body %}
+<div class="content" align="center">
+    <h1>Statistics about electric car chargers</h1>
+    <h2>Search values between dates:</h2>
+    <form action="/" method="POST">
+        <p>
+            Starting date
+            <input type="date" name="starting_date" style="margin:10px"
+                   id="starting_date" value="{{ request.form['starting_date'] }}">
+        </p>
+        <p>
+            Ending date&nbsp
+            <input type="date" name="ending_date" style="margin:10px"
+                   id="ending_date" value="{{ request.form['ending_date'] }}">
+        </p>
+        <p>
+            {% with errors = get_flashed_messages() %}
+                {% if errors %}
+                    {{ errors[0] }}
+                {% endif %}
+            {% endwith %}
+        </p>
+        <input type="submit" value="Filter" style="height:40px; width:100px; margin:10px">
+    </form>
+    <table border="solid">
+        <tr>
+            <th>Id</th>
+            <th>Charging point number</th>
+            <th>Transaction start</th>
+            <th>Charge start</th>
+            <th>Charge end</th>
+            <th>Transaction end</th>
+            <th>Start Wh</th>
+            <th>End Wh</th>
+            <th>Total Wh</th>
+            <th>Connect time</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td>{{row.id}}</td>
+                <td width="80px">{{row.charging_point_number}}</td>
+                <td width="140px">{{row.transaction_start}}</td>
+                <td width="140px">{{row.charge_start}}</td>
+                <td width="140px">{{row.charge_end}}</td>
+                <td width="140px">{{row.transaction_end}}</td>
+                <td>{{row.start_wh}}</td>
+                <td>{{row.end_wh}}</td>
+                <td>{{row.total_wh}}</td>
+                <td>{{row.connect_time}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock %}

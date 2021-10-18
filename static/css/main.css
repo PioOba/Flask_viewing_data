@@ -1,0 +1,25 @@
+table {
+margin: 10px;
+table-layout: fixed;
+height: 600px;
+text-align: center;
+overflow-y: scroll;
+display: inline-block;
+border:solid black 1px;
+border-collapse: separate;
+border-spacing: 0px;
+}
+
+th {
+top: 0;
+z-index: 2;
+position: sticky;
+height: 30px;
+background-color: white;
+border: black solid 1px;
+background-clip: padding-box;
+}
+
+p{
+margin: 0px;
+}
