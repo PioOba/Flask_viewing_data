@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///charging_statistics.db'
 db = SQLAlchemy(app)
-app.secret_key = 'XXXXXXXXXX'
+app.secret_key = {{$ secrets.SECRET_KEY }}
 
 
 # Create model of the table structure
