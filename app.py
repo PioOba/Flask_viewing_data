@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
-
+from datetime import datetime
 
 # Create application and connection to the database
 app = Flask(__name__)
@@ -33,7 +33,7 @@ def index():
     if request.method == 'POST':
         starting_datetime = request.form["starting_date"]
         ending_datetime = request.form["ending_date"]
-        if len(starting_datetime) == 0 or len(ending_datetime) == 0:
+        if len(starting_datetime) == 0 or len(ending_datetime) ==0:
             data = Stats.query.all()
             flash("Incorrect date limiters")
             return render_template('index.html', data=data)
